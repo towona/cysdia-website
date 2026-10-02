@@ -27,8 +27,8 @@ a:focus-visible, button:focus-visible { outline: 1px solid var(--brass); outline
 .wrap { max-width: 1160px; margin: 0 auto; padding-inline: clamp(16px, 5vw, 48px); }
 
 /* Header */
-header.top { position: absolute; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 3; }
-header.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px 24px; padding-block: 28px; flex-wrap: wrap; }
+header.top { position: fixed; top: 0; left: 0; right: 0; z-index: 20; padding-top: env(safe-area-inset-top, 0px); background: rgba(10, 13, 23, 0.82); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--hair); }
+header.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 10px 24px; padding-block: 16px; flex-wrap: wrap; }
 .mark { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .mark svg { width: 30px; height: 30px; flex: none; }
 .mark span { font-family: var(--display); font-size: 24px; letter-spacing: 0.02em; }
@@ -41,7 +41,7 @@ nav a[aria-current="page"] { text-decoration: underline; text-decoration-color: 
 .hero { position: relative; overflow: hidden; background: radial-gradient(120% 90% at 78% 20%, var(--night-2) 0%, var(--night) 60%); }
 .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .hero .wrap { position: relative; z-index: 2; padding-block: clamp(150px, 22vw, 230px) clamp(80px, 10vw, 120px); }
-.home .hero { min-height: calc(100vh - 120px); display: flex; align-items: center; }
+.home .hero { min-height: calc(100vh - var(--footer-h, 48px)); display: flex; align-items: center; }
 .home .hero .wrap { width: 100%; }
 .page-hero .wrap { padding-block: clamp(130px, 16vw, 180px) clamp(40px, 6vw, 64px); }
 .page-hero h1 { font-size: clamp(38px, 5.6vw, 64px); }
@@ -149,9 +149,12 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(32px, 4.6vw
   .park-grid .p-wide img { aspect-ratio: 16 / 10; }
 }
 
-footer { border-top: 1px solid var(--hair); }
-footer .wrap { padding-block: 32px; display: flex; justify-content: space-between; gap: 16px 40px; flex-wrap: wrap; font-size: 13px; color: var(--dim); }
-footer p { margin: 0; max-width: 48rem; }
+footer { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; padding-bottom: env(safe-area-inset-bottom, 0px); border-top: 1px solid var(--hair); background: rgba(10, 13, 23, 0.9); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+body { padding-bottom: var(--footer-h, 48px); }
+html { scroll-padding-top: var(--header-h, 72px); }
+footer .wrap { padding-block: 14px; display: flex; justify-content: space-between; align-items: baseline; gap: 6px 32px; flex-wrap: wrap; font-size: 12px; line-height: 1.5; color: var(--dim); }
+footer p { margin: 0; }
+@media (min-width: 900px) { footer .wrap { flex-wrap: nowrap; } footer p { white-space: nowrap; } }
 
 @media (max-width: 860px) {
   .mission .wrap, .focus-head, .contact .wrap { grid-template-columns: minmax(0, 1fr); }
@@ -173,8 +176,8 @@ footer p { margin: 0; max-width: 48rem; }
 }
 
 /* Stargazers on the home sky */
-.stargazers { position: absolute; z-index: 1; right: clamp(16px, 12vw, 200px); bottom: 0; width: clamp(130px, 17vw, 230px); height: auto; pointer-events: none; }
-@media (max-width: 700px) { .stargazers { width: 110px; opacity: .8; } .home .hero .wrap { padding-bottom: 150px; } }
+.stargazers { position: absolute; z-index: 1; right: clamp(16px, 12vw, 200px); bottom: 0; width: clamp(169px, 22vw, 299px); height: auto; pointer-events: none; }
+@media (max-width: 700px) { .stargazers { width: 143px; opacity: .8; } .home .hero .wrap { padding-top: 124px; padding-bottom: 130px; } }
 
 /* Symbolic line pictures */
 .mission .wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 260px); align-items: center; column-gap: clamp(32px, 6vw, 96px); }
@@ -192,3 +195,8 @@ footer p { margin: 0; max-width: 48rem; }
   .about-art { justify-self: start; max-width: 160px; order: -1; }
 }
 .contact .wrap { align-items: start; }
+@media (max-width: 700px) {
+  footer .wrap { padding-block: 8px; gap: 2px 16px; font-size: 10.5px; line-height: 1.4; }
+  header.top .wrap { padding-block: 12px; gap: 6px 20px; }
+  nav { gap: 14px; }
+}

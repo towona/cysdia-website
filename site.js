@@ -1,4 +1,14 @@
 (function () {
+  // Keep page content clear of the fixed header and footer
+  var hdr = document.querySelector('header.top'), ftr = document.querySelector('footer');
+  function fit() {
+    var r = document.documentElement.style;
+    if (hdr) r.setProperty('--header-h', hdr.offsetHeight + 'px');
+    if (ftr) r.setProperty('--footer-h', ftr.offsetHeight + 'px');
+  }
+  fit(); window.addEventListener('resize', fit);
+  if (window.ResizeObserver) { var ro = new ResizeObserver(fit); if (hdr) ro.observe(hdr); if (ftr) ro.observe(ftr); }
+
   // Copy email
   var btn = document.getElementById('copy');
   var email = document.getElementById('email');
