@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Cysdia</title>
-<meta name="description" content="Patient capital for a fairer, greener world. Hong Kong and New York.">
-<meta property="og:title" content="Cysdia">
-<meta property="og:description" content="Patient capital for a fairer, greener world. Hong Kong and New York.">
+<title>Focus · Cysdia</title>
+<meta name="description" content="The fields Cysdia follows most closely: climate, nature, livelihoods, health and trust.">
+<meta property="og:title" content="Focus · Cysdia">
+<meta property="og:description" content="The fields Cysdia follows most closely: climate, nature, livelihoods, health and trust.">
 <meta name="theme-color" content="#0a0d17">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body class="home">
+<body class="">
 <header class="top">
   <div class="wrap">
     <a class="mark" href="index.html" aria-label="Cysdia, home">
@@ -26,9 +26,9 @@
       <span>Cysdia</span>
     </a>
     <nav aria-label="Main">
-      <a href="index.html" aria-current="page">Home</a>
+      <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
-      <a href="focus.html">Focus</a>
+      <a href="focus.html" aria-current="page">Focus</a>
       <a href="approach.html">Approach</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -36,24 +36,45 @@
 </header>
 
 <main>
-  <div class="hero">
+  <div class="hero page-hero">
     <canvas id="sky" aria-hidden="true"></canvas>
-      <svg class="stargazers" viewBox="0 0 220 120" fill="none" aria-hidden="true" stroke="#c8a568" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M2 112 Q110 104 218 112" opacity=".45"/>
-        <circle cx="91" cy="51" r="7"/>
-        <path d="M90 58 L90 87 M90 87 L82 110 M90 87 L98 110 M90 65 L106 50 L118 37 M90 65 L83 80"/>
-        <circle cx="141.5" cy="60" r="6.5"/>
-        <path d="M140 66.5 L140 91 M140 91 L133 110 M140 91 L147 110 M140 72 L133 85 M140 72 L147 85"/>
-      </svg>
     <div class="wrap">
-      <h1>Patient capital for a fairer, greener world.</h1>
-      <div class="hero-links">
-        <a href="about.html"><small>About Us</small><span>Who we are</span></a>
-        <a href="focus.html"><small>Focus</small><span>Five fields we follow closely</span></a>
-        <a href="approach.html"><small>Approach</small><span>How we read an opportunity</span></a>
-      </div>
+      <h1>Focus</h1>
     </div>
   </div>
+
+  <section id="focus">
+    <div class="wrap">
+      <div class="focus-head">
+        <div>
+                    <h2>Where we look most closely.</h2>
+        </div>
+        <p class="intro">Each field spans listed and private markets, grants and catalytic capital. The form depends on the problem.</p>
+      </div>
+      <ul class="sectors">
+        <li class="sector">
+          <h3><svg class="f-icon" viewBox="0 0 32 32" fill="none" stroke="#c8a568" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="9" r="3"/><path d="M8 3.5 V2 M2.5 9 H1 M4 5 L3 4 M12 5 L13 4"/><path d="M20 30 L21 14"/><circle cx="21" cy="13" r="1.2"/><path d="M21 12 L21 4 M22 13.6 L28.5 17.5 M20 13.6 L13.5 17.5"/><path d="M15 30 H27"/></svg><span>Climate</span></h3>
+          <p><b>A transition Asia can afford.</b>Decarbonization pathways, transition finance and the infrastructure a lower-carbon region will need.</p>
+        </li>
+        <li class="sector">
+          <h3><svg class="f-icon" viewBox="0 0 32 32" fill="none" stroke="#c8a568" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 25 C6 12 16 6 27 5 C26 17 19 25 6 25 Z"/><path d="M6 25 L20 12"/><path d="M3 29 Q7 27 11 29 T19 29 T27 29" opacity=".6"/></svg><span>Nature</span></h3>
+          <p><b>The balance sheet beneath every other.</b>Oceans, forests, land and water, valued as the assets they are and protected accordingly.</p>
+        </li>
+        <li class="sector">
+          <h3><svg class="f-icon" viewBox="0 0 32 32" fill="none" stroke="#c8a568" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15 L16 5 L28 15"/><path d="M7.5 12.5 V27 H24.5 V12.5"/><path d="M14 27 V20 H18 V27"/><circle cx="21" cy="17" r="1.6"/></svg><span>Livelihoods</span></h3>
+          <p><b>Finance for those markets overlook.</b>Credit, savings and insurance for households and small enterprises.</p>
+        </li>
+        <li class="sector">
+          <h3><svg class="f-icon" viewBox="0 0 32 32" fill="none" stroke="#c8a568" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 27 C4 19 3.5 9 10 8 C13 7.5 15 9.5 16 11 C17 9.5 19 7.5 22 8 C28.5 9 28 19 16 27 Z"/><path d="M8 16 H12 L14 12.5 L17 20 L19 16 H24"/></svg><span>Health</span></h3>
+          <p><b>Care and learning across a lifetime.</b>Enterprises and programs that widen access to health, education and ageing well.</p>
+        </li>
+        <li class="sector">
+          <h3><svg class="f-icon" viewBox="0 0 32 32" fill="none" stroke="#c8a568" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 5 V27 M10 27 H22 M6 10 H26"/><path d="M6 10 L3 18 M6 10 L9 18 M26 10 L23 18 M26 10 L29 18"/><path d="M3 18 Q6 22 9 18 Z M23 18 Q26 22 29 18 Z"/><circle cx="16" cy="5" r="1.3"/></svg><span>Trust</span></h3>
+          <p><b>Governance worth relying on.</b>Board practice, accountability and impact evidence reported with the rigor of a set of accounts.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 </main>
 
 <footer>

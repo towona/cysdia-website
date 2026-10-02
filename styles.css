@@ -1,0 +1,194 @@
+/* Layout: statement-led and stacked, after the reference sites. A night-sky hero with a turning star chart, a large mission statement, a typographic list of focus areas, then approach and contact. Deliberately dark-only. */
+:root {
+  --night: #0a0d17;
+  --night-2: #10152a;
+  --starlight: #ece5d3;
+  --dim: #9a9cb0;
+  --brass: #c8a568;
+  --hair: rgba(236, 229, 211, 0.14);
+  --display: Georgia, "Times New Roman", serif;
+  --body: Verdana, Helvetica, Arial, sans-serif;
+  --mono: Verdana, Helvetica, Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--starlight);
+  font: 15px/1.75 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 1px solid var(--brass); outline-offset: 4px; }
+
+.wrap { max-width: 1160px; margin: 0 auto; padding-inline: clamp(16px, 5vw, 48px); }
+
+/* Header */
+header.top { position: absolute; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 3; }
+header.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px 24px; padding-block: 28px; flex-wrap: wrap; }
+.mark { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.mark svg { width: 30px; height: 30px; flex: none; }
+.mark span { font-family: var(--display); font-size: 24px; letter-spacing: 0.02em; }
+nav { display: flex; gap: clamp(18px, 3vw, 36px); flex-wrap: wrap; }
+nav a { text-decoration: none; font-size: 15px; letter-spacing: 0.02em; color: var(--dim); transition: color .3s; }
+nav a:hover, nav a[aria-current="page"] { color: var(--starlight); }
+nav a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 6px; }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; background: radial-gradient(120% 90% at 78% 20%, var(--night-2) 0%, var(--night) 60%); }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero .wrap { position: relative; z-index: 2; padding-block: clamp(150px, 22vw, 230px) clamp(80px, 10vw, 120px); }
+.home .hero { min-height: calc(100vh - 120px); display: flex; align-items: center; }
+.home .hero .wrap { width: 100%; }
+.page-hero .wrap { padding-block: clamp(130px, 16vw, 180px) clamp(40px, 6vw, 64px); }
+.page-hero h1 { font-size: clamp(38px, 5.6vw, 64px); }
+.page-hero + section { border-top: 0; }
+.page-hero + section .wrap { padding-top: clamp(24px, 4vw, 48px); }
+.coords { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: var(--brass); margin: 0 0 28px; }
+h1 {
+  font-family: var(--display); font-weight: 400; margin: 0; max-width: 15ch;
+  font-size: clamp(42px, 7.4vw, 92px); line-height: 1.04; letter-spacing: -0.01em; text-wrap: balance;
+}
+.hero-links { display: flex; flex-wrap: wrap; gap: 14px 40px; margin-top: 48px; }
+.hero-links a {
+  display: grid; gap: 2px; text-decoration: none; min-width: 0;
+  padding-top: 14px; border-top: 1px solid var(--hair); max-width: 20rem; transition: border-color .3s;
+}
+.hero-links a:hover { border-color: var(--brass); }
+.hero-links small { font-size: 15px; letter-spacing: 0.02em; color: var(--brass); }
+.hero-links span { font-family: var(--display); font-size: 21px; }
+.hero-links span::after { content: " →"; color: var(--brass); }
+
+/* Sections */
+section { border-top: 1px solid var(--hair); }
+section .wrap { padding-block: clamp(72px, 10vw, 128px); }
+.eyebrow { display: flex; align-items: baseline; gap: 14px; font-size: 15px; letter-spacing: 0.02em; color: var(--brass); margin: 0 0 22px; }
+h2 { font-family: var(--display); font-weight: 400; font-size: clamp(32px, 4.6vw, 52px); line-height: 1.1; margin: 0; max-width: 18ch; text-wrap: balance; }
+.intro { max-width: 38rem; color: var(--dim); margin: 24px 0 0; }
+
+/* Mission statement */
+.mission .wrap { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px 64px; }
+.mission .statement { max-width: 34ch; }
+.mission .sub { max-width: 54rem; }
+.statement { font-family: var(--display); font-size: clamp(26px, 3.4vw, 40px); line-height: 1.3; margin: 0; text-wrap: pretty; }
+.mission .sub { grid-column: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 48px; margin-top: 24px; color: var(--dim); }
+.mission .sub p { margin: 0; }
+
+/* Focus list */
+.focus-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 64px; align-items: end; margin-bottom: clamp(36px, 5vw, 56px); }
+.focus-head .intro { margin: 0; }
+.sectors { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--hair); }
+.sector {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 22rem); gap: 8px 48px; align-items: baseline;
+  padding-block: clamp(20px, 2.6vw, 30px); border-bottom: 1px solid var(--hair);
+}
+.sector h3 {
+  font-family: var(--display); font-weight: 400; margin: 0; line-height: 1.05;
+  font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.01em; transition: color .35s, transform .35s;
+}
+.sector p { margin: 0; color: var(--dim); }
+.sector p b { display: block; font-weight: 400; margin-bottom: 4px; }
+.sector:hover h3 { color: var(--brass); transform: translateX(6px); }
+@media (prefers-reduced-motion: reduce) { .sector h3 { transition: none; } .sector:hover h3 { transform: none; } }
+
+/* Approach */
+.principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 56px); margin-top: clamp(48px, 7vw, 80px); }
+.principle { min-width: 0; display: grid; gap: 14px; align-content: start; }
+.principle svg { width: 64px; height: 64px; }
+.principle h3 { font-family: var(--display); font-weight: 400; font-size: 26px; margin: 0; }
+.principle .term { font-size: 15px; color: var(--dim); margin: -6px 0 0; }
+.principle p { margin: 0; }
+
+/* Values strip */
+.values { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: clamp(56px, 8vw, 96px); border-top: 1px solid var(--hair); }
+.value { padding: 24px 24px 0 0; min-width: 0; }
+.value + .value { padding-left: 24px; border-left: 1px solid var(--hair); }
+.value h4 { margin: 0 0 6px; font-family: var(--display); font-weight: 400; font-size: 22px; }
+.value p { margin: 0; font-size: 15px; color: var(--dim); }
+
+/* Contact */
+.contact .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 48px 80px; align-items: end; }
+.address { display: grid; gap: 22px; }
+.address .row { display: grid; gap: 4px; }
+.address .label { font-size: 15px; letter-spacing: 0.02em; color: var(--dim); }
+.email-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 18px; }
+.email { font-family: var(--display); font-size: clamp(22px, 2.6vw, 28px); overflow-wrap: anywhere; user-select: all; }
+.copy {
+  font: 14px var(--body); letter-spacing: 0.02em;
+  background: none; color: var(--brass); border: 1px solid var(--brass); border-radius: 999px;
+  padding: 8px 16px; cursor: pointer; transition: background .25s, color .25s;
+}
+.copy:hover { background: var(--brass); color: var(--night); }
+
+
+/* Central Park gallery */
+.park-head { display: grid; grid-template-columns: minmax(0, 0.32fr) minmax(0, 1fr); gap: 16px 64px; margin-bottom: clamp(32px, 5vw, 56px); }
+.park-body { display: grid; gap: 28px; min-width: 0; }
+.offices { display: flex; flex-wrap: wrap; gap: 16px 56px; margin: 0; }
+.offices div { display: grid; gap: 2px; padding-top: 12px; border-top: 1px solid var(--hair); min-width: 12rem; }
+.offices dt { font-family: var(--display); font-size: 22px; }
+.offices dd { margin: 0; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--dim); }
+.w3w { color: var(--dim); text-decoration: none; font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.02em; border-bottom: 1px solid var(--hair); transition: color .25s, border-color .25s; overflow-wrap: anywhere; }
+.w3w:hover { color: var(--starlight); border-color: var(--brass); }
+.offices .clock { color: var(--brass); font-variant-numeric: tabular-nums; }
+.park-note { margin: 0; max-width: 40rem; color: var(--dim); font-size: clamp(17px, 1.6vw, 19px); }
+.park-grid { display: grid; grid-template-columns: minmax(0, 1fr); }
+.park-grid figure { margin: 0; min-width: 0; display: grid; gap: 10px; align-content: start; }
+
+.park-grid img { width: 100%; height: auto; max-width: 100%; object-fit: cover; display: block; aspect-ratio: 3 / 2; filter: saturate(0.82) contrast(1.04); }
+.park-grid .p-wide img { aspect-ratio: 21 / 9; object-position: 50% 62%; filter: saturate(0.85) brightness(0.92) contrast(1.05); }
+.park-grid figcaption { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; color: var(--dim); }
+.park-grid .p-wide { position: relative; }
+.photo-credit { position: absolute; right: 8px; bottom: 6px; font-size: 10px; color: rgba(236,229,211,0.55); text-shadow: 0 0 4px rgba(0,0,0,0.6); }
+.photo-credit a { text-decoration: none; }
+@media (max-width: 860px) {
+  .park-head { grid-template-columns: minmax(0, 1fr); }
+  .park-grid .p-wide img { aspect-ratio: 16 / 10; }
+}
+
+footer { border-top: 1px solid var(--hair); }
+footer .wrap { padding-block: 32px; display: flex; justify-content: space-between; gap: 16px 40px; flex-wrap: wrap; font-size: 13px; color: var(--dim); }
+footer p { margin: 0; max-width: 48rem; }
+
+@media (max-width: 860px) {
+  .mission .wrap, .focus-head, .contact .wrap { grid-template-columns: minmax(0, 1fr); }
+  .mission .sub { grid-column: 1; }
+  .sector { grid-template-columns: minmax(0, 1fr); }
+  .principles { grid-template-columns: minmax(0, 1fr); }
+  .principle { grid-template-columns: 64px minmax(0, 1fr); column-gap: 22px; }
+  .principle svg { grid-row: span 3; }
+  .values { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .value:nth-child(3) { padding-left: 0; border-left: 0; }
+  .value:nth-child(n+3) { padding-top: 24px; }
+}
+@media (max-width: 520px) {
+  .mission .sub { grid-template-columns: minmax(0, 1fr); }
+  .principle { grid-template-columns: minmax(0, 1fr); }
+  .principle svg { grid-row: auto; width: 52px; height: 52px; }
+  .values { grid-template-columns: minmax(0, 1fr); }
+  .value, .value + .value { padding-left: 0; border-left: 0; }
+}
+
+/* Stargazers on the home sky */
+.stargazers { position: absolute; z-index: 1; right: clamp(16px, 12vw, 200px); bottom: 0; width: clamp(130px, 17vw, 230px); height: auto; pointer-events: none; }
+@media (max-width: 700px) { .stargazers { width: 110px; opacity: .8; } .home .hero .wrap { padding-bottom: 150px; } }
+
+/* Symbolic line pictures */
+.mission .wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 260px); align-items: center; column-gap: clamp(32px, 6vw, 96px); }
+.mission-text { display: grid; gap: 24px; min-width: 0; }
+.about-art { width: 100%; max-width: 260px; height: auto; justify-self: end; }
+.presence-label { display: grid; gap: 24px; align-content: start; }
+.globe-art { width: clamp(96px, 12vw, 150px); height: auto; }
+.sector h3 { display: flex; align-items: center; gap: clamp(14px, 2vw, 24px); }
+.f-icon { width: clamp(28px, 3vw, 40px); height: auto; flex: none; }
+.value h4 { display: flex; align-items: center; gap: 10px; }
+.v-icon { width: 24px; height: 24px; flex: none; }
+.contact-art { width: clamp(120px, 14vw, 170px); height: auto; margin-bottom: 4px; }
+@media (max-width: 860px) {
+  .mission .wrap { grid-template-columns: minmax(0, 1fr); }
+  .about-art { justify-self: start; max-width: 160px; order: -1; }
+}
+.contact .wrap { align-items: start; }
